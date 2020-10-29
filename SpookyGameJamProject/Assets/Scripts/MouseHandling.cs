@@ -8,31 +8,37 @@ public class MouseHandling : MonoBehaviour
     public Tilemap tilemap;
     
     TileBase tile;
-    public TileBase greenTile;
+    public TileBase lightGreenTile;
+    public TileBase darkGreenTile;
     
     public Grid grid;
 
-    public Sprite sprite;
+    public bool isOnLawn;
+    public Vector3 mousePos;
+    public Vector3Int posInt;
+    //public Sprite sprite;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isOnLawn = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3Int posInt = grid.LocalToCell(mousePos);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.x += 0.5f;
+        mousePos.y += 0.5f;
+        posInt = grid.WorldToCell(mousePos);
         tile = tilemap.GetTile(posInt);
-        tilemap.SetColor(posInt, Color.white);
 
-        
+        if(tile == lightGreenTile || tile == darkGreenTile)
+        {
+            isOnLawn = true;
+        }
+        else
+        {
+            isOnLawn = false;
+        }
     }
-
-    void spawnPlant()
-    {
-        
-    }
-
 }

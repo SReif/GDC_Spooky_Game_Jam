@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
@@ -10,6 +11,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 origPosition;
+    private Vector2 dropLocation;
+    public GameObject plant;
+
+    public MouseHandling check;
+    bool checkLawn;
 
     private void Awake()
     {
@@ -34,9 +40,20 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("EndDrag");
+        checkLawn = check.isOnLawn;
+        Vector3 spawnpos = check.posInt;
+        if (checkLawn)
+        {
+            dropLocation = Camera.main.ScreenToWorldPoint(
+            rectTransform.position);
+            Instantiate(plant, spawnpos, Quaternion.identity);
+            Debug.Log(spawnpos);
+        }
+       
         rectTransform.anchoredPosition = origPosition;
         canvasGroup.alpha = 1.0f;
         canvasGroup.blocksRaycasts = true;
+
     }
 
     public void OnPointerDown(PointerEventData eventDate)
