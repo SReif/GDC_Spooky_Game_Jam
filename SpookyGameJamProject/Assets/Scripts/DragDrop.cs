@@ -10,6 +10,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 origPosition;
+    private Vector2 dropLocation;
+    public GameObject plant;
 
     private void Awake()
     {
@@ -34,9 +36,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("EndDrag");
+        dropLocation = Camera.main.ScreenToWorldPoint(
+            rectTransform.position);
         rectTransform.anchoredPosition = origPosition;
         canvasGroup.alpha = 1.0f;
         canvasGroup.blocksRaycasts = true;
+        Instantiate(plant, new Vector2(dropLocation.x, 
+            dropLocation.y), Quaternion.identity);
     }
 
     public void OnPointerDown(PointerEventData eventDate)
