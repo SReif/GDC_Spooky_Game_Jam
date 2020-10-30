@@ -93,21 +93,24 @@ public class SkeletonScript : MonoBehaviour
         if (attackTimer >= attackRate)
         {
 
-            /*
+            
              PlantHealth plantHealth = currentTarget.GetComponent<PlantHealth>();
-             plantHealth.health = plantHealth.health - damage;
-             */
+             plantHealth.health = plantHealth.health - attackDamage;
+             
             attackTimer = 0;
-
+            if(currentTarget.tag == "Base")
+            {
+                Destroy(this.gameObject);
+            }
         }
 
 
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Base")
         {
 
             UnityEngine.Debug.Log("Collision!");
@@ -115,10 +118,20 @@ public class SkeletonScript : MonoBehaviour
             canAttack = true;
 
             currentTarget = collision.gameObject;
-
         }
 
     }
 
-    
+    void OnTriggerExit2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
+        {
+
+            canAttack = false;
+            //currentTarget = null;
+        }
+    }
+
+
 }

@@ -14,7 +14,7 @@ public class Watering : MonoBehaviour
     {
         //Update watering can position
         this.gameObject.transform.position = Camera.main.ScreenToWorldPoint(
-            (Vector2)Input.mousePosition, 0);
+            (Vector2)Input.mousePosition);
 
         FeedWater();
     }

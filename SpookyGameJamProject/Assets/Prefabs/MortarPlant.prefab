@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4585326167881566687}
   m_Layer: 0
   m_Name: MortarPlant
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 3449542162247468254, guid: 76036a62ff9424044aee89a852b8ec5f, type: 3}
   fireRate: 3
-  distance: 2
+  distance: 4
 --- !u!114 &4585326167881566685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

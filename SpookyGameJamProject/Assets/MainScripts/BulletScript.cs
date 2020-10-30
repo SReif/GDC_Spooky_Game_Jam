@@ -30,13 +30,13 @@ public class BulletScript : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collision) //detect collision
+    void OnTriggerEnter2D(Collider2D collision) //detect collision
     {
 
         if (collision.gameObject.tag == "Enemy") //check to see if what we are colliding with is an enemy
         {
 
-            if (collision.gameObject.name == "SkeletonPrefab") //if it's a Skeleton
+            if (collision.gameObject.name == "SkeletonPrefab(Clone)") //if it's a Skeleton
             {
 
                 SkeletonScript skeletonScript = collision.gameObject.GetComponent<SkeletonScript>(); //get the Skeleton's script
@@ -44,7 +44,7 @@ public class BulletScript : MonoBehaviour
                 Destroy(gameObject); //destroy the bullet
 
             }
-            else if (collision.gameObject.name == "VampirePrefab") //if it's a Vampire
+            else if (collision.gameObject.name == "VampirePrefab(Clone)") //if it's a Vampire
             {
 
                 VampireScript vampireScript = collision.gameObject.GetComponent<VampireScript>(); //get the Vampire's script
@@ -52,7 +52,7 @@ public class BulletScript : MonoBehaviour
                 Destroy(gameObject); //destroy the bullet
 
             }
-            else if (collision.gameObject.name == "WitchPrefab") //if it's a Witch
+            else if (collision.gameObject.name == "WitchPrefab(Clone)") //if it's a Witch
             {
 
                 WitchScript witchScript = collision.gameObject.GetComponent<WitchScript>(); //get the Witch's script
@@ -60,7 +60,6 @@ public class BulletScript : MonoBehaviour
                 Destroy(gameObject); //destroy the bullet
 
             }
-
         }
 
     }

@@ -23,7 +23,7 @@ public class EnemySpawnerScript : MonoBehaviour
     {
 
         spawnTimer = 0; //formality setting of a value
-        firstY = 3.0f; //formality setting of a value
+        firstY = 2.0f; //formality setting of a value
         enemyCount[0] = 0; //formality setting of a value, [0] will be total enemies on screen
         enemyCount[1] = 0; //formality setting of a value, [1] will be total enemies on row 1
         enemyCount[2] = 0; //formality setting of a value, [2] will be total enemies on row 2
@@ -64,8 +64,8 @@ public class EnemySpawnerScript : MonoBehaviour
 
                 float rowY = 0f; //formality setting a value
                 if (rowSelection == 1) { rowY = firstY; } //will place the enemy in the first row
-                else if (rowSelection == 2) { rowY = firstY - 3.0f; } //will place the enemy in the second row
-                else if (rowSelection == 3) { rowY = firstY - 6.0f; } //will place the enemy in the third row
+                else if (rowSelection == 2) { rowY = firstY - 2.0f; } //will place the enemy in the second row
+                else if (rowSelection == 3) { rowY = firstY - 4.0f; } //will place the enemy in the third row
 
                 enemyPlacement = new Vector3(transform.position.x, rowY, 0f); //creates the placement of the enemy
 

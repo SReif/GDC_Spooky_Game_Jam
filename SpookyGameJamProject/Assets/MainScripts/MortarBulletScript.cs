@@ -31,13 +31,13 @@ public class MortarBulletScript : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D collision) //checks for collision, this section works EXACTLY the same as a regular bullet
+    void OnTriggerEnter2D(Collider2D collision) //checks for collision, this section works EXACTLY the same as a regular bullet
     {
 
         if (collision.gameObject.tag == "Enemy")
         {
 
-            if (collision.gameObject.name == "SkeletonPrefab")
+            if (collision.gameObject.name == "SkeletonPrefab(Clone)")
             {
 
                 SkeletonScript skeletonScript = collision.gameObject.GetComponent<SkeletonScript>();
@@ -45,7 +45,7 @@ public class MortarBulletScript : MonoBehaviour
 
             }
             
-            if (collision.gameObject.name == "VampirePrefab")
+            if (collision.gameObject.name == "VampirePrefab(Clone)")
             {
 
                 VampireScript vampireScript = collision.gameObject.GetComponent<VampireScript>();
@@ -53,7 +53,7 @@ public class MortarBulletScript : MonoBehaviour
 
             }
             
-            if (collision.gameObject.name == "WitchPrefab")
+            if (collision.gameObject.name == "WitchPrefab(Clone)")
             {
 
                 WitchScript witchScript = collision.gameObject.GetComponent<WitchScript>();

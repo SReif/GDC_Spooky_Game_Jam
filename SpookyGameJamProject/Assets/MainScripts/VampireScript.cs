@@ -81,29 +81,43 @@ public class VampireScript : MonoBehaviour
         if (attackTimer >= attackRate)
         {
 
-            /*
+            
              PlantHealth plantHealth = currentTarget.GetComponent<PlantHealth>();
-             plantHealth.health = plantHealth.health - damage;
-             health = health + (damage/2);
-             */
+             plantHealth.health = plantHealth.health - attackDamage;
+             health = health + (attackDamage/2);
+             
             attackTimer = 0;
-
+            if (currentTarget.tag == "Base")
+            {
+                Destroy(this.gameObject);
+            }
         }
 
 
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Base")
         {
 
             canAttack = true;
 
             currentTarget = collision.gameObject;
+            
 
         }
+    }
 
+    void OnTriggerExit2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
+        {
+
+            canAttack = false;
+            //currentTarget = null;
+        }
     }
 }
