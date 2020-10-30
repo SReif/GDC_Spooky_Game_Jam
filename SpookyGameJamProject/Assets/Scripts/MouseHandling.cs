@@ -29,8 +29,8 @@ public class MouseHandling : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         posInt = grid.WorldToCell(mousePos);
         tile = tilemap.GetTile(posInt);
-        double x = System.Math.Round((mousePos.x / 2)) * 2 + 1;
-        double y = System.Math.Round(mousePos.y/ 2)*2 ;
+        double x = System.Math.Floor((mousePos.x / 2)) * 2 + 1;
+        double y = System.Math.Round(mousePos.y / 2) * 2 ;
         posInt.x = (int)x;
         posInt.y = (int)y;
 
