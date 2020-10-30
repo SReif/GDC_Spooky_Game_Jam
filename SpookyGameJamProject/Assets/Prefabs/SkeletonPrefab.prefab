@@ -100,9 +100,9 @@ MonoBehaviour:
   healthBarOne: 15
   healthBarTwo: 10
   health: 0
-  movementSpeed: 0.02
-  attackRate: 5
-  attackDamage: 5
+  movementSpeed: 0.05
+  attackRate: 1
+  attackDamage: 10
 --- !u!61 &-8261037196695315676
 BoxCollider2D:
   m_ObjectHideFlags: 0

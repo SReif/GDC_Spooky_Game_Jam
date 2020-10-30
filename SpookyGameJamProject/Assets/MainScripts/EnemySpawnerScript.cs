@@ -32,8 +32,9 @@ public class EnemySpawnerScript : MonoBehaviour
     
     void Update()
     {
-
-        spawnTimer = spawnTimer + Time.deltaTime; //the timer in action
+        spawnRate -= 0.05f * Time.deltaTime;
+        spawnTimer += Time.deltaTime; //the timer in action
+        spawnRate = Mathf.Clamp(spawnRate, spawnTimer, 5.0f);
 
         //first, it checks to see if we have hit the spawn timer, then if there are too many enemies on screen already, then if there is room in any of the rows
         if ((spawnTimer >= spawnRate) && (enemyCount[0] < screenEnemyCap) && (enemyCount[1] < rowEnemyCap) && (enemyCount[2] < rowEnemyCap) && (enemyCount[3] < rowEnemyCap))

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 10
-  duration: 0.25
+  duration: 1
 --- !u!61 &2274298417132621801
 BoxCollider2D:
   m_ObjectHideFlags: 0

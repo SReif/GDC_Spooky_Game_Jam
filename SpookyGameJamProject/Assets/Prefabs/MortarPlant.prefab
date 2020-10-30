@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3449542162247468254, guid: 76036a62ff9424044aee89a852b8ec5f, type: 3}
-  fireRate: 3
+  fireRate: 7.5
   distance: 5
 --- !u!114 &4585326167881566685
 MonoBehaviour:
@@ -113,7 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446d69dd79206724782d01cb0905d271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 35
+  maxHealth: 0
 --- !u!50 &4585326167881566686
 Rigidbody2D:
   serializedVersion: 4

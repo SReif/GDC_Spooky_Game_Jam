@@ -32,10 +32,10 @@ public class SkeletonScript : MonoBehaviour
         hasDied = false;
         attackTimer = 0f;
         health = healthBarOne;
-        
-        if (transform.position.y == 0) { row = 1; }
-        else if (transform.position.y == 64) { row = 2; }
-        else if (transform.position.y == 128) { row = 3; }
+
+        if (transform.position.y == 2) { row = 1; }
+        else if (transform.position.y == 0) { row = 2; }
+        else if (transform.position.y == -2) { row = 3; }
 
         spawnerReference = GameObject.FindGameObjectWithTag("Spawner");
         enemySpawnerScript = spawnerReference.GetComponent<EnemySpawnerScript>();
@@ -58,7 +58,7 @@ public class SkeletonScript : MonoBehaviour
 
         } else if ((health <= 0) && (hasDied))
         {
-
+            enemySpawnerScript.enemyCount[0]--;
             enemySpawnerScript.enemyCount[row]--;
             Destroy(gameObject);
 
@@ -100,7 +100,8 @@ public class SkeletonScript : MonoBehaviour
             attackTimer = 0;
             if(currentTarget.tag == "Base")
             {
-                Destroy(this.gameObject);
+                this.health = 0;
+                hasDied = true;
             }
         }
 

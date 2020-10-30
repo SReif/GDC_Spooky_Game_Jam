@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
+  maxHealth: 0
 --- !u!114 &1768005655769466138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,8 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5735097548057442840, guid: 5c9015c57da0b0244a9e41443a798267, type: 3}
-  fireRate: 3
-  burstRate: 1
+  fireRate: 2
+  burstRate: 0.5
 --- !u!61 &-291348926726443877
 BoxCollider2D:
   m_ObjectHideFlags: 0

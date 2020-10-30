@@ -33,7 +33,7 @@ public class Watering : MonoBehaviour
         //Restores health if sprite is active and player is holding mouse click
         if (this.gameObject.GetComponent<SpriteRenderer>().enabled == true && Input.GetMouseButton(0) && plantHealth.health < plantHealth.maxHealth)
         {
-            plantHealth.health += 0.05f;
+            plantHealth.health += 0.1f;
         }
 
         if(plantHealth.health == plantHealth.maxHealth)
