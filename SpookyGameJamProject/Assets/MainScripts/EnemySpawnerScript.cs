@@ -21,14 +21,12 @@ public class EnemySpawnerScript : MonoBehaviour
 
     void Start()
     {
-
         spawnTimer = 0; //formality setting of a value
         firstY = 2.0f; //formality setting of a value
         enemyCount[0] = 0; //formality setting of a value, [0] will be total enemies on screen
         enemyCount[1] = 0; //formality setting of a value, [1] will be total enemies on row 1
         enemyCount[2] = 0; //formality setting of a value, [2] will be total enemies on row 2
         enemyCount[3] = 0; //formality setting of a value, [3] will be total enemies on row 3
-        
     }
 
     
@@ -38,12 +36,11 @@ public class EnemySpawnerScript : MonoBehaviour
         spawnTimer = spawnTimer + Time.deltaTime; //the timer in action
 
         //first, it checks to see if we have hit the spawn timer, then if there are too many enemies on screen already, then if there is room in any of the rows
-        if ((spawnTimer >= spawnRate) && (enemyCount[0] < screenEnemyCap) && (enemyCount[1] < rowEnemyCap) && (enemyCount[2] < rowEnemyCap) && (enemyCount[3] < rowEnemyCap)) 
-        { 
+        if ((spawnTimer >= spawnRate) && (enemyCount[0] < screenEnemyCap) && (enemyCount[1] < rowEnemyCap) && (enemyCount[2] < rowEnemyCap) && (enemyCount[3] < rowEnemyCap))
+        {
             EnemySpawn(); //when the timer hits the spawnRate value, executes enemy spawn
             spawnTimer = 0; //resets the timer to 0
-        } 
-        
+        }  
     }
 
     void EnemySpawn()
@@ -74,9 +71,7 @@ public class EnemySpawnerScript : MonoBehaviour
                 enemyCount[rowSelection]++; //adds an enemy count to that row
                 enemyCount[0]++; //adds an enemy count to the total enemies
                 enemyDidNotSpawn = false; //leaves the while loop
-
-            }
-
+            }  
         }
 
     }

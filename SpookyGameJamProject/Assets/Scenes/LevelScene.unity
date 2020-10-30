@@ -451,6 +451,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &459983098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 62887714442313359, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
+  m_PrefabInstance: {fileID: 1455496741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &459983099
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459983098}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000011175871, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.19892415, y: 0.32}
+  m_EdgeRadius: 0
 --- !u!1 &834254033
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +580,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0015060082, y: -0.007530153}
+  m_Offset: {x: -0.0015060753, y: -0.023483098}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -560,7 +591,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19723122, y: 0.6008434}
+  m_Size: {x: 0.3886669, y: 1.1964208}
   m_EdgeRadius: 0
 --- !u!212 &1224744949
 SpriteRenderer:
@@ -622,7 +653,7 @@ Transform:
   m_GameObject: {fileID: 1224744947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.97, y: 0.12, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -640,7 +671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  healthBar: {fileID: 0}
+  maxHealth: 0
 --- !u!1001 &1455496741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -648,8 +679,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62887714442313352, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 62887714442313354, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
+      propertyPath: gameObject
+      value: 
+      objectReference: {fileID: 5289104847438555617, guid: e97d028368328634ab1847fc1990ef4e, type: 3}
     - target: {fileID: 62887714442313355, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
       propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 62887714442313355, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 94c169a714d1b6d40837a1ae1c1da0c2, type: 3}
+    - target: {fileID: 62887714442313355, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 62887714442313357, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
@@ -695,6 +742,14 @@ PrefabInstance:
     - target: {fileID: 62887714442313357, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 62887714442313357, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 62887714442313357, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 62887714442313359, guid: 5559cd9fffb37874187b07a7750d25aa, type: 3}
       propertyPath: m_Name
@@ -804,7 +859,7 @@ MonoBehaviour:
   enemyCount: 00000000000000000000000000000000
   screenEnemyCap: 25
   rowEnemyCap: 10
-  spawnRate: 5
+  spawnRate: 2
 --- !u!1 &1499685320
 GameObject:
   m_ObjectHideFlags: 0

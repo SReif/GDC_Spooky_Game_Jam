@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Watering : MonoBehaviour
 {
-    public HealthSystem healthSystem;
+    //public HealthSystem healthSystem;
+    public PlantHealth plantHealth;
+    private Vector3 objPosition;
+    private bool rotated;
 
     void Start()
     {
@@ -14,34 +17,39 @@ public class Watering : MonoBehaviour
     {
         //Update watering can position
         this.gameObject.transform.position = Camera.main.ScreenToWorldPoint(
-            (Vector2)Input.mousePosition);
+            (Vector2)Input.mousePosition, 0);
 
         FeedWater();
     }
 
     void FeedWater()
     {
-        //Restores health if sprite is active and player is holding mouse click
-        if(this.gameObject.GetComponent<SpriteRenderer>().enabled == true && Input.GetMouseButton(0))
+        do
         {
-            healthSystem.RestoreHealth(0.1f);
+            this.gameObject.transform.rotation = Quaternion.Euler(0, 0, -45);
+            rotated = true;
+        } while (plantHealth.health < plantHealth.maxHealth && rotated == false);
+
+        //Restores health if sprite is active and player is holding mouse click
+        if (this.gameObject.GetComponent<SpriteRenderer>().enabled == true && Input.GetMouseButton(0) && plantHealth.health < plantHealth.maxHealth)
+        {
+            plantHealth.health += 0.05f;
         }
 
-        //*********REMOVE BELOW CODE****************
-        if (this.gameObject.GetComponent<SpriteRenderer>().enabled == true && Input.GetMouseButtonDown(1))
+        if(plantHealth.health == plantHealth.maxHealth)
         {
-            healthSystem.TakeDamage(10f);
+            rotated = false;
+            this.gameObject.transform.rotation = Quaternion.identity;
         }
-        //*****************************************
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            //enables watering can and links health system of collided object
+            //disables watering can and de-links health system of collided object
             this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            healthSystem = collision.gameObject.GetComponent<HealthSystem>();
+            plantHealth = collision.gameObject.GetComponent<PlantHealth>();
         }
     }
 
@@ -51,7 +59,7 @@ public class Watering : MonoBehaviour
         {
             //disables watering can and de-links health system of collided object
             this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            healthSystem = null;
+            plantHealth = null;
         }
     }
 }
